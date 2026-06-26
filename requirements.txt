@@ -1,0 +1,6 @@
+# Redrob Ranker — Python dependencies
+# The core ranker (rank.py) uses ONLY Python stdlib:
+#   json, csv, gzip, math, re, datetime, argparse, pathlib, sys
+# No external packages needed to run rank.py
+# The packages below are optional — for data exploration only.
+pandas>=1.5.0

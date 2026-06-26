@@ -1,0 +1,56 @@
+# Redrob Hackathon — Submission Metadata
+# Fill in YOUR team details before submitting
+
+team_name: "your-team-name"
+
+primary_contact:
+  name: "Your Name"
+  email: "your@email.com"
+  phone: "+91-XXXXXXXXXX"
+
+team_members:
+  - name: "Your Name"
+    email: "your@email.com"
+    role: "Team Lead / ML Engineer"
+
+github_repo: "https://github.com/YOUR_USERNAME/redrob-ranker"
+sandbox_link: "https://huggingface.co/spaces/YOUR_USERNAME/redrob-ranker"
+
+reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./submission.csv"
+
+compute:
+  platform: "Local CPU machine"
+  cpu_cores: 8
+  ram_gb: 16
+  python_version: "3.11"
+  os: "Linux / macOS"
+  uses_gpu_for_inference: false
+  has_network_during_ranking: false
+  pre_computation_required: false
+  pre_computation_time_minutes: 0
+
+ai_tools_used:
+  - "Claude"
+
+ai_usage_summary: |
+  Used Claude to help design and review the scoring architecture, discuss
+  signal weighting strategy, and review code. The engineering decisions,
+  scoring logic, weights, and anti-pattern detection were built and
+  validated by the team. No candidate data was fed to any LLM API during ranking.
+
+methodology_summary: |
+  Hybrid multi-signal scorer with behavioral multiplier. Six scoring components
+  (title/role fit, skill depth with duration+endorsement trust, experience arc,
+  career narrative NLP, location, education) combined with a multiplicative
+  behavioral signal modifier. Title fit is the decisive anti-keyword-stuffer
+  signal. Skill scoring requires duration > 0 and endorsements to be trusted.
+  Services-company career ratio penalizes pure IT services backgrounds.
+  Honeypot detection catches impossible profiles. Runtime ~90s for 100K
+  candidates on a single CPU core, <1GB RAM.
+
+declarations:
+  read_submission_spec: true
+  code_is_original_work: true
+  no_collusion: true
+  honeypot_check_done: true
+  reproduction_tested: true
